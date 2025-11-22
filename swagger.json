@@ -8,13 +8,11 @@
   "host": "localhost:3000",
   "basePath": "/",
   "schemes": [
-    "https",
     "http"
   ],
   "paths": {
     "/": {
       "get": {
-        "tags": [],
         "description": "",
         "responses": {
           "200": {

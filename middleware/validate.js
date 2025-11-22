@@ -1,4 +1,4 @@
-
+const Validator = require('validator');
 
 const saveContact = (req, res, next) => {
     const validationRule = {
