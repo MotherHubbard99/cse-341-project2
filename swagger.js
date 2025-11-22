@@ -8,8 +8,8 @@ const doc = {
     },
     //host: process.env.HOST || 'localhost:3000',
     //schemes: ['http']
-    host: https://cse-341-project2-ojkw.onrender.com,
-    schemes: ['https']
+    host: process.env.HOST || 'localhost:3000',
+    schemes: [process.env.SCHEMES || 'http']
 };
 
 const outputFile = './swagger.json';
