@@ -1,11 +1,12 @@
 const swaggerAutogen = require('swagger-autogen')();
+require('dotenv').config();  // load .env variables
 
 const doc = {
     info: {
         title: 'Users Api',
         description: 'Users Api'
     },
-    host: 'localhost:3000',
+    host: process.env.HOST || 'localhost:3000',
     schemes: ['http']
 };
 
