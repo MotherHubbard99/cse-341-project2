@@ -13,8 +13,10 @@ const initDb = (callback) => {
     }
     MongoClient.connect(process.env.MONGODB_URL)
         .then((client) => {
-            database = client.db(); //defaults to the database in my URL
+            database = client.db('project2'); //defaults to the database in my URL
             console.log('Connected to MongoDB, using DB:', database.databaseName);
+            db = getDb();
+            console.log(db.databaseName);
 
             callback(null, database);
         })

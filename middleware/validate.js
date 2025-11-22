@@ -1,11 +1,12 @@
-const Validator = require('validator');
+//const Validator = require('validator');
+const Validator = require('validatorjs');
 
 const saveContact = (req, res, next) => {
     const validationRule = {
         age: 'required|numeric',
         favoriteCandy: 'string',
         favoriteSoda: 'required|string',
-        EyeColor: 'string',
+        eyeColor: 'string',
         firstname: 'required|string',
         location: 'required|string'
     };

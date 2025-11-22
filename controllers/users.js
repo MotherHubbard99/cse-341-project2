@@ -3,7 +3,7 @@ const ObjectId = require('mongodb').ObjectId;
 
 const getAll = async (req, res) => {
   try {
-    const lists = await mongodb.getDb().collection('Users').find().toArray();
+    const lists = await mongodb.getDb().collection('cse341').find().toArray();
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists);
   } catch (err) {
@@ -17,7 +17,7 @@ const getSingle = async (req, res) => {
   }
   const userId = new ObjectId(req.params.id);
   try {
-    const result = await mongodb.getDb().collection('Users').find({ _id: userId }).toArray();
+    const result = await mongodb.getDb().collection('cse341').find({ _id: userId }).toArray();
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(result[0]);
   } catch (err) {
@@ -31,10 +31,11 @@ const createUser = async (req, res) => {
     favoriteCandy: req.body.favoriteCandy,
     favoriteSoda: req.body.favoriteSoda,
     eyeColor: req.body.eyeColor,
+    firstname: req.body.firstname,
     location: req.body.location,
   };
   try {
-    const response = await mongodb.getDb().collection('Users').insertOne(user);
+    const response = await mongodb.getDb().collection('cse341').insertOne(user);
     if (response.acknowledged) {
       res.status(201).json(response);
     } else {
@@ -58,9 +59,9 @@ const updateUser = async (req, res) => {
     location: req.body.location,
   };
   try {
-    const response = await mongodb.getDb().collection('Users').replaceOne({ _id: userId }, user);
+    const response = await mongodb.getDb().collection('cse341').replaceOne({ _id: userId }, user);
     if (response.modifiedCount > 0) {
-      res.status(204).send();
+      res.status(200).json({message: 'User updated successfully'});
     } else {
       res.status(404).json(response.error || 'User not found or no changes made.');
     }
@@ -75,7 +76,7 @@ const deleteUser = async (req, res) => {
   }
   const userId = new ObjectId(req.params.id);
   try {
-    const response = await mongodb.getDb().collection('Users').deleteOne({ _id: userId });
+    const response = await mongodb.getDb().collection('cse341').deleteOne({ _id: userId });
     if (response.deletedCount > 0) {
       res.status(204).send();
     } else {

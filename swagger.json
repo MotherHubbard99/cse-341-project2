@@ -57,6 +57,9 @@
                 "eyeColor": {
                   "example": "any"
                 },
+                "firstname": {
+                  "example": "any"
+                },
                 "location": {
                   "example": "any"
                 }
@@ -125,6 +128,10 @@
                   "example": "any"
                 },
                 "eyeColor": {
+                  "example": "any"
+                  
+                },
+                "firstname": {
                   "example": "any"
                 },
                 "location": {
