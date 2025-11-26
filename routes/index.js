@@ -5,6 +5,10 @@ const router = express.Router();
 const usersRoutes = require('./users');
 router.use('/users', usersRoutes);
 
+// Contact routes
+const contactRoutes = require('./contact');
+router.use('/contact', contactRoutes);
+
 // Swagger UI
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('../swagger.json');
