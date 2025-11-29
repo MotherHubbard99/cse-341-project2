@@ -1,3 +1,5 @@
+require('dotenv').config();  // Load environment variables from .env file
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const passport = require('passport');
@@ -44,6 +46,11 @@ app
   .use(cors({ methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'] }))
   .use(cors({ origin: '*'}))
   .use("/", require("./routes/index.js"));
+
+  //log values before initializing passport strategies
+  console.log("Client ID:", process.env.GITHUB_CLIENT_ID);
+  console.log("Client Secret:", process.env.GITHUB_CLIENT_SECRET);
+  console.log("Callback URL:", process.env.GITHUB_CALLBACK_URL);
 
 passport.use(new GithubStrategy({
   clientID: process.env.GITHUB_CLIENT_ID,

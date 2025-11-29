@@ -1,5 +1,5 @@
-const dotenv = require('dotenv');
-dotenv.config();
+//const dotenv = require('dotenv');
+//dotenv.config();  //moved to server.js
 
 //import mongo client
 const MongoClient = require('mongodb').MongoClient;
