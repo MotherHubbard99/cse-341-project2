@@ -3,6 +3,7 @@ const router = express.Router();
 
 const contactController = require('../controllers/contact');
 const validation = require('../middleware/validate');
+const { isAuthenticated } = require('../middleware/authenticate');
 
 const testConnection = async (req, res) => {
   try {
@@ -15,18 +16,18 @@ const testConnection = async (req, res) => {
 };
 
 // GET all contacts
-router.get('/', contactController.getAll);
+router.get('/', isAuthenticated, contactController.getAll);
 // GET single contact by ID
 router.get('/:id', contactController.getSingle);
 
 // POST create contact
-router.post('/', validation.saveContact, contactController.createContact);
+router.post('/', isAuthenticated, validation.saveContact, contactController.createContact);
 
 // PUT update contact
 router.put('/:id', validation.saveContact, contactController.updateContact);
 
 // DELETE contact
-router.delete('/:id', contactController.deleteContact);
+router.delete('/:id', isAuthenticated, contactController.deleteContact);
 
 router.get('/test-connection', testConnection);
 

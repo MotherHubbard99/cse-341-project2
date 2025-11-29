@@ -45,7 +45,7 @@
             "schema": {
               "type": "object",
               "properties": {
-                "age": {
+                "childAge": {
                   "example": "any"
                 },
                 "favoriteCandy": {
@@ -55,9 +55,6 @@
                   "example": "any"
                 },
                 "eyeColor": {
-                  "example": "any"
-                },
-                "firstname": {
                   "example": "any"
                 },
                 "location": {
@@ -118,7 +115,7 @@
             "schema": {
               "type": "object",
               "properties": {
-                "age": {
+                "childAge": {
                   "example": "any"
                 },
                 "favoriteCandy": {
@@ -130,9 +127,6 @@
                 "eyeColor": {
                   "example": "any"
                   
-                },
-                "firstname": {
-                  "example": "any"
                 },
                 "location": {
                   "example": "any"

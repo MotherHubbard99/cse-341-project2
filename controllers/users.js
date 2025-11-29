@@ -27,11 +27,10 @@ const getSingle = async (req, res) => {
 
 const createUser = async (req, res) => {
   const user = {
-    age: req.body.age,
+    childAge: req.body.childAge,
     favoriteCandy: req.body.favoriteCandy,
     favoriteSoda: req.body.favoriteSoda,
     eyeColor: req.body.eyeColor,
-    firstname: req.body.firstname,
     location: req.body.location,
   };
   try {
@@ -52,7 +51,7 @@ const updateUser = async (req, res) => {
   }
   const userId = new ObjectId(req.params.id);
   const user = {
-    age: req.body.age,
+    childAge: req.body.childAge,
     favoriteCandy: req.body.favoriteCandy,
     favoriteSoda: req.body.favoriteSoda,
     eyeColor: req.body.eyeColor,

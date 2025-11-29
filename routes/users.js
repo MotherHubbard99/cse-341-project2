@@ -3,6 +3,7 @@ const router = express.Router();
 
 const usersController = require('../controllers/users');
 const validation = require('../middleware/validate');
+const { isAuthenticated } = require('../middleware/authenticate');
 
 // GET all users
 router.get('/', usersController.getAll);
@@ -11,13 +12,16 @@ router.get('/', usersController.getAll);
 router.get('/:id', usersController.getSingle);
 
 // POST create user
-router.post('/', validation.saveContact, usersController.createUser);
+//router.post('/', isAuthenticated, validation.saveContact, usersController.createUser);
+router.post('/', isAuthenticated, usersController.createUser);
+
 
 // PUT update user
-router.put('/:id', validation.saveContact, usersController.updateUser);
+router.put('/:id', isAuthenticated, usersController.updateUser);
+//router.put('/:id', validation.saveContact, usersController.updateUser);
 
 // DELETE user
-router.delete('/:id', usersController.deleteUser);
+router.delete('/:id', isAuthenticated, usersController.deleteUser);
 
 const testConnection = async (req, res) => {
   try {

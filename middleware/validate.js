@@ -3,11 +3,10 @@ const Validator = require('validatorjs');
 
 const saveContact = (req, res, next) => {
     const validationRule = {
-        age: 'required|numeric',
+        childAge: 'required|numeric',
         favoriteCandy: 'string',
         favoriteSoda: 'required|string',
         eyeColor: 'string',
-        firstname: 'required|string',
         location: 'required|string'
     };
 
