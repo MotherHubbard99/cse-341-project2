@@ -16,15 +16,16 @@ const testConnection = async (req, res) => {
 };
 
 // GET all contacts
-router.get('/', isAuthenticated, contactController.getAll);
+router.get('/', contactController.getAll);
+
 // GET single contact by ID
 router.get('/:id', contactController.getSingle);
 
 // POST create contact
-router.post('/', isAuthenticated, validation.saveContact, contactController.createContact);
+router.post('/', isAuthenticated, contactController.createContact);
 
 // PUT update contact
-router.put('/:id', validation.saveContact, contactController.updateContact);
+router.put('/:id', isAuthenticated, contactController.updateContact);
 
 // DELETE contact
 router.delete('/:id', isAuthenticated, contactController.deleteContact);
