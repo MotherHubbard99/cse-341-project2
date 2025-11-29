@@ -26,7 +26,10 @@ router.get('/login', passport.authenticate('github'), (req, res) => { });
 router.get('/logout', function(req, res) {
   req.logout(function (err) {
     if (err) { return next(err); }
-    res.redirect('/');
+    //clear the session completely
+    req.session.destroy(() => {
+      res.redirect('/');
+    });
   });
 });
 
